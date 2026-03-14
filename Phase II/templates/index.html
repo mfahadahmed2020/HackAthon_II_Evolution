@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - Todo App{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to Todo App</h1>
+    <p>Organize your tasks, boost your productivity</p>
+    
+    <div class="hero-buttons">
+        <a href="/register" class="btn btn-primary">Get Started</a>
+        <a href="/login" class="btn btn-secondary">Login</a>
+    </div>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <h3>📋 Create Tasks</h3>
+        <p>Add your tasks with priorities and due dates</p>
+    </div>
+    <div class="feature-card">
+        <h3>✅ Track Progress</h3>
+        <p>Mark tasks complete and see your productivity</p>
+    </div>
+    <div class="feature-card">
+        <h3>📊 Statistics</h3>
+        <p>View your completion stats and improve</p>
+    </div>
+</div>
+{% endblock %}

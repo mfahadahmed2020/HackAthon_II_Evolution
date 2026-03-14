@@ -1,0 +1,104 @@
+# .dockerignore - Docker build se exclude hone wali files
+# Roman Urdu: Yeh files Docker image mein copy nahi hongi
+
+# Python cache files
+# Roman Urdu: Python ke temporary files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+# Roman Urdu: Virtual environment ko copy nahi karna
+venv/
+env/
+.venv/
+.env.local
+
+# IDE files
+# Roman Urdu: Editor ki settings
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Git files
+# Roman Urdu: Git folder ko exclude karna
+.git/
+.gitignore
+.gitattributes
+
+# Logs
+# Roman Urdu: Application logs ko exclude karna
+logs/
+*.log
+
+# Database files (SQLite)
+# Roman Urdu: Database files ko Docker volume se manage karenge
+*.db
+*.db-journal
+database/
+
+# Environment files (security)
+# Roman Urdu: Sensitive .env files ko exclude karna
+.env.backup
+.env.*.local
+
+# Build artifacts
+# Roman Urdu: Build ke temporary files
+dist/
+build/
+*.egg-info/
+
+# Testing
+# Roman Urdu: Test files aur coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Documentation
+# Roman Urdu: Heavy documentation files
+*.md
+!requirements.txt
+docs/
+
+# Docker files (already in context)
+# Roman Urdu: Docker files ko recursively copy nahi karna
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# OS files
+# Roman Urdu: Operating system ke temporary files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Qwen Code files
+# Roman Urdu: Agent configuration files
+.qwen/
+history/
+sp.*
+
+# Specification files (not needed in production)
+# Roman Urdu: Spec files production mein nahi chahiye
+specs/
+sp.plan/
+sp.specify/
+sp.task/
+sp.implement/
+sp.constitution
+
+# Static files that are regenerated
+# Roman Urdu: Jo files automatically generate hoti hain
+static/css/*.min.css
+static/js/*.min.js
+
+# Temporary files
+# Roman Urdu: Koi bhi temporary files
+tmp/
+temp/
+*.tmp
+*.bak

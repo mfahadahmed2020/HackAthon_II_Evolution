@@ -1,0 +1,233 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Todo App{% endblock %}
+
+{% block content %}
+<div class="dashboard">
+    <h1>My Dashboard</h1>
+
+    <!-- Phase 7: Analytics Stats Cards (T077) -->
+    <div class="analytics-stats-container" id="analyticsStatsContainer">
+        <div class="stat-card analytics-card">
+            <div class="stat-icon">📊</div>
+            <div class="stat-details">
+                <h3>Total Tasks</h3>
+                <p id="analyticsTotal">0</p>
+            </div>
+        </div>
+        <div class="stat-card analytics-card">
+            <div class="stat-icon">✅</div>
+            <div class="stat-details">
+                <h3>Completed</h3>
+                <p id="analyticsCompleted">0</p>
+            </div>
+        </div>
+        <div class="stat-card analytics-card">
+            <div class="stat-icon">⏳</div>
+            <div class="stat-details">
+                <h3>Pending</h3>
+                <p id="analyticsPending">0</p>
+            </div>
+        </div>
+        <div class="stat-card analytics-card">
+            <div class="stat-icon">🔥</div>
+            <div class="stat-details">
+                <h3>Current Streak</h3>
+                <p id="analyticsStreak">0 days</p>
+            </div>
+        </div>
+        <div class="stat-card analytics-card">
+            <div class="stat-icon">📈</div>
+            <div class="stat-details">
+                <h3>Completion Rate</h3>
+                <p id="analyticsCompletionRate">0%</p>
+            </div>
+        </div>
+        <div class="stat-card analytics-card">
+            <div class="stat-icon">🏆</div>
+            <div class="stat-details">
+                <h3>Longest Streak</h3>
+                <p id="analyticsLongestStreak">0 days</p>
+            </div>
+        </div>
+    </div>
+    <!-- End Analytics Stats Cards -->
+
+    <!-- Phase 7: Category Filter Buttons (T071) -->
+    <div class="category-filters-container" id="categoryFiltersContainer">
+        <button class="category-filter-btn active" data-category="all">
+            All Categories
+        </button>
+        <!-- Category buttons will be populated dynamically -->
+        <button class="btn btn-secondary btn-sm" onclick="showCategoryModal()" title="Add Category">
+            + Add Category
+        </button>
+    </div>
+    <!-- End Category Filter Buttons -->
+
+    <!-- Add Todo Button -->
+    <button class="btn btn-primary" onclick="showAddModal()">+ Add New Todo</button>
+
+    <!-- Filters and Search -->
+    <div class="filters-container">
+        <div class="filters">
+            <button class="filter-btn active" data-status="all">All</button>
+            <button class="filter-btn" data-status="pending">Pending</button>
+            <button class="filter-btn" data-status="completed">Completed</button>
+        </div>
+        <input type="text" id="searchInput" placeholder="Search todos..." class="search-input">
+    </div>
+
+    <!-- Phase 7: Weekly Trends Chart (T078) -->
+    <div class="analytics-section" id="weeklyTrendsSection">
+        <h2>Weekly Trends</h2>
+        <div class="chart-container">
+            <canvas id="weeklyTrendsChart"></canvas>
+        </div>
+    </div>
+    <!-- End Weekly Trends Chart -->
+
+    <!-- Phase 7: Category Breakdown (T078) -->
+    <div class="analytics-section" id="categoryBreakdownSection">
+        <h2>Category Breakdown</h2>
+        <div class="category-breakdown-container" id="categoryBreakdownContainer">
+            <!-- Category breakdown will be populated dynamically -->
+        </div>
+    </div>
+    <!-- End Category Breakdown -->
+
+    <!-- Todo List -->
+    <div id="todoList" class="todo-list">
+        <!-- Todos will be loaded here -->
+    </div>
+</div>
+
+<!-- Add/Edit Todo Modal -->
+<div id="todoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle">Add New Todo</h2>
+        <form id="todoForm">
+            <input type="hidden" id="todoId">
+            
+            <div class="form-group">
+                <label for="todoTitle">Title *</label>
+                <input type="text" id="todoTitle" required maxlength="200">
+            </div>
+            
+            <div class="form-group">
+                <label for="todoDescription">Description</label>
+                <textarea id="todoDescription" rows="3"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="todoPriority">Priority</label>
+                <select id="todoPriority">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+            </div>
+            
+            <!-- Phase 7: Category Selector (T066) -->
+            <div class="form-group">
+                <label for="todoCategory">Category</label>
+                <select id="todoCategory">
+                    <option value="">No Category</option>
+                    <!-- Categories will be populated dynamically -->
+                </select>
+            </div>
+            <!-- End Category Selector -->
+            
+            <!-- Phase 7: Recurrence Options (T073) -->
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="todoRecurring"> Repeat? (Recurring Task)
+                </label>
+            </div>
+            <div class="form-group" id="recurrenceOptions" style="display: none;">
+                <label for="recurrencePattern">Repeat Pattern</label>
+                <select id="recurrencePattern">
+                    <option value="daily">Daily (Rozana)</option>
+                    <option value="weekly">Weekly (Haftawar)</option>
+                    <option value="monthly">Monthly (Mahinawar)</option>
+                </select>
+                
+                <label for="occurrencesCount">Number of Occurrences</label>
+                <input type="number" id="occurrencesCount" min="1" max="365" value="30">
+                <small>Kitne tasks create karne hain (1-365)</small>
+                
+                <label for="todoStartDate">Start Date</label>
+                <input type="datetime-local" id="todoStartDate">
+            </div>
+            <!-- End Recurrence Options -->
+            
+            <div class="form-group">
+                <label for="todoDueDate">Due Date</label>
+                <input type="datetime-local" id="todoDueDate">
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Save Todo</button>
+        </form>
+    </div>
+</div>
+<!-- End Add/Edit Todo Modal -->
+
+<!-- Phase 7: Category Management Modal (T067) -->
+<div id="categoryModal" class="modal">
+    <div class="modal-content modal-sm">
+        <span class="close" onclick="closeCategoryModal()">&times;</span>
+        <h2 id="categoryModalTitle">Add New Category</h2>
+        <form id="categoryForm">
+            <input type="hidden" id="categoryId">
+            
+            <div class="form-group">
+                <label for="categoryName">Category Name *</label>
+                <input type="text" id="categoryName" required maxlength="50" placeholder="e.g., Work, Personal">
+            </div>
+            
+            <div class="form-group">
+                <label for="categoryColor">Color</label>
+                <div class="color-picker-container">
+                    <input type="color" id="categoryColor" value="#4f46e5">
+                    <span id="colorPreview">#4f46e5</span>
+                </div>
+                <small>Apne category ke liye rang select karein</small>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Save Category</button>
+        </form>
+        
+        <!-- Category List for Edit/Delete -->
+        <div class="category-list-container" id="categoryListContainer">
+            <h3>Your Categories</h3>
+            <div id="categoryList" class="category-list">
+                <!-- Categories will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Category Management Modal -->
+
+<!-- Phase 7: Toast Notifications Container (T088) -->
+<div id="toastContainer" class="toast-container"></div>
+<!-- End Toast Notifications Container -->
+
+<!-- Phase 7: Loading Overlay (T090) -->
+<div id="loadingOverlay" class="loading-overlay" style="display: none;">
+    <div class="spinner"></div>
+    <p>Loading...</p>
+</div>
+<!-- End Loading Overlay -->
+
+{% endblock %}
+
+{% block extra_js %}
+<!-- Phase 7: Load new JavaScript files -->
+<script src="{{ url_for('static', path='/js/ui.js') }}"></script>
+<script src="{{ url_for('static', path='/js/categories.js') }}"></script>
+<script src="{{ url_for('static', path='/js/analytics.js') }}"></script>
+<script src="{{ url_for('static', path='/js/websocket.js') }}"></script>
+<script src="{{ url_for('static', path='/js/dashboard.js') }}"></script>
+{% endblock %}

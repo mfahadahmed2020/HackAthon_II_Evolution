@@ -1,0 +1,332 @@
+/Agents Prompt
+
+/sp.task "Create 7 agent as .md files" --parameters {
+"agents": [
+  {
+     "name": "Spec Writer Agent",
+     "filename": ".qwen/agents/spec_writer_agent.md",
+     "content": "### Role: Spec Writer Agent
+**Focus:** Defining Technical Specifications & Requirements
+
+Focused on transforming high-level goals into detailed, actionable specifications in `/specs`. This agent ensures every feature has a clear source of truth before implementation.
+
+#### Responsibilities:
+- Create and maintain files in `@specs/features/` and `@specs/api/`.
+- Ensure all business logic for Phase II (Todo CRUD + Auth) is documented.
+- Detail the "The Evolution of Todo" requirements into technical Markdown files.
+
+#### Required Skills:
+- **Requirement Analysis Skill:** Breaking complex prompts into functional specs.
+- **Documentation Skill:** Writing clear, structured Markdown following Spec-Kit Plus conventions.
+"
+  },
+  {
+     "name": "Architecture Planner Agent",
+     "filename": ".qwen/agents/architecture_planner_agent.md",
+     "content": "### Role: Architecture Planner Agent
+**Focus:** Monorepo Structure & System Integration
+
+Focused on the high-level organization of the project. It ensures that the Frontend, Backend, and Database layers are correctly linked according to the Monorepo guidelines.
+
+#### Responsibilities:
+- Manage the root `QWEN.md` and define cross-service workflows.
+- Plan the JWT integration strategy between Better Auth (JS) and FastAPI (Python).
+- Structure the monorepo folders for optimal Qwen CLI context.
+
+#### Required Skills:
+- **System Design Skill:** Designing distributed cloud-native AI systems.
+- **Integration Skill:** Managing shared secrets and environment variables across services.
+"
+  },
+  {
+     "name": "Database Engineer Agent",
+     "filename": ".qwen/agents/database_engineer_agent.md",
+     "### Role: Database Engineer Agent
+**Focus:** SQLModel Schema & Neon PostgreSQL Persistence
+
+Focused on the data layer. It ensures that the persistent storage is scalable, normalized, and correctly implemented using SQLModel for the Neon Serverless DB.
+
+#### Responsibilities:
+- Design the `UserData` and `Task` models with correct relationships.
+- Implement migration strategies and ensure data integrity.
+- Write database connection logic in `backend/db.py`.
+
+#### Required Skills:
+- **Schema Design Skill:** Expert in SQLModel and PostgreSQL relationships.
+- **Optimization Skill:** Ensuring efficient queries for multi-user task listing.
+"
+  },
+  {
+     "name": "Backend Engineer Agent",
+     "filename": ".qwen/agents/backend_engineer_agent.md",
+     "content": "### Role: Backend Engineer Agent
+**Focus:** FastAPI Development & RESTful API Architecture
+
+Focused on building the Python-based API layer. It implements the logic defined in `@specs/api/rest-endpoints.md`.
+
+#### Responsibilities:
+- Implement all 6 CRUD endpoints (GET, POST, PUT, DELETE, PATCH).
+- Integrate JWT middleware for user identification and data filtering.
+- Handle error responses using FastAPI’s HTTPException.
+
+#### Required Skills:
+- **API Development Skill:** Expert in FastAPI, Pydantic, and asynchronous Python.
+- **Security Logic Skill:** Enforcing task ownership (user isolation) on every request.
+"
+  },
+  {
+     "name": "Frontend Engineer Agent",
+     "filename": ".qwen/agents/frontend_engineer_agent.md",
+     "content": "### Role: Frontend Engineer Agent
+**Focus:** Next.js 16 (App Router) & Responsive UI
+
+Focused on the user interface and frontend logic. It ensures a modern, responsive Todo application that consumes the FastAPI backend.
+
+#### Responsibilities:
+- Build the UI using Tailwind CSS and Next.js 16 App Router patterns.
+- Implement the API Client in `frontend/lib/api.ts` to call backend routes.
+- Manage client-side state for real-time Task updates.
+
+#### Required Skills:
+- **UI/UX Skill:** Expert in React Server Components and Tailwind CSS.
+- **State Management Skill:** Handling async API calls and UI feedback.
+"
+  },
+  {
+     "name": "Integration Tester Agent",
+     "filename": ".qwen/agents/integration_tester_agent.md",
+     "content": "### Role: Integration Tester Agent
+**Focus:** Full-Stack Flow Validation & API Connectivity
+
+Focused on verifying the seamless interaction between the Next.js frontend, FastAPI backend, and Neon Database. This agent ensures that the "The Evolution of Todo" functions correctly as a distributed system.
+
+#### Responsibilities:
+- Validate the JWT flow: Ensure the frontend sends the token and the backend correctly verifies it.
+- Test REST Endpoints: Verify that CRUD operations correctly persist data in Neon DB and return expected JSON.
+- Check User Isolation: Explicitly test that User A cannot access or modify User B's tasks.
+- Debug Connection Issues: Identify bottlenecks or failures in the monorepo communication (CORS, Environment Variables, Network errors).
+
+#### Required Skills:
+- **Testing Skill:** Expert in API testing (Postman/Curl), E2E flow validation, and status code verification.
+- **Debugging Skill:** Ability to analyze logs from both Uvicorn (Backend) and Next.js (Frontend) to find integration gaps.
+"
+  },
+  {
+     "name": "Auth Agent",
+     "filename": ".qwen/agents/auth_agent.md",
+     "content": "### Role: Auth Agent
+**Focus:** Better Auth & JWT Flow Security
+
+Focused explicitly on the secure identity flow between the TypeScript frontend and Python backend.
+
+#### Responsibilities:
+- Configure Better Auth with JWT plugin on the frontend.
+- Implement the shared secret verification on the FastAPI backend.
+- Handle signup/signin flows and token persistence.
+
+#### Required Skills:
+- **Auth Skill:** Expert in JWT tokens and session management.
+- **Validation Skill:** Strict credential and token integrity verification.
+"
+  }
+]
+}
+
+/sp.constitution
+
+Create a comprehensive and professional Project Constitution for our Hackathon Phase 2: Todo Full-Stack Web Application.
+
+Project Name: Evolution of Todo - Phase II (Multi-User Web App with Authentication)
+
+Project Overview:
+We are building a modern, secure, multi-user Todo application evolving from a console app to a full-stack web app. The system uses Next.js 16+ (App Router) frontend, Python FastAPI backend, Neon Serverless PostgreSQL database, and Better Auth with JWT for secure user isolation.
+
+Core Goals for Phase 2:
+- Implement multi-user Task CRUD operations with full user ownership
+- Secure authentication using Better Auth + JWT tokens shared between frontend and backend
+- Enforce data isolation: each user can only access/modify their own tasks
+- Use fully spec-driven, agentic development workflow (no manual coding)
+
+Technology Stack:
+- Frontend: Next.js 16+ (App Router), TypeScript, Tailwind CSS
+- Backend: Python FastAPI, SQLModel ORM
+- Database: Neon Serverless PostgreSQL
+- Authentication: Better Auth with JWT plugin
+- Development: Qwen CLI + Spec-Kit Plus in monorepo structure
+- Environment: Shared BETTER_AUTH_SECRET for JWT signing/verification
+
+Multi-Agent System (Our Team of 7 Specialized Agents):
+We are using an advanced multi-agent workflow with the following specialized sub-agents already created in .qwen/agents/:
+
+1. Spec Writer Agent – Creates and maintains all technical specifications
+2. Architecture Planner Agent – Manages monorepo structure and cross-service integration
+3. Database Engineer Agent – Designs and implements SQLModel schema and Neon DB connection
+4. Backend Engineer Agent – Builds secure FastAPI REST API with JWT middleware
+5. Frontend Engineer Agent – Develops responsive Next.js UI with API client
+6. Auth Agent – Handles secure Better Auth + JWT flow across full stack
+7. Integration Tester Agent – Validates end-to-end flows, user isolation, and API connectivity
+
+Development Workflow:
+1. Spec Writer Agent → writes detailed specs in /specs/
+2. Architecture Planner → ensures system design and monorepo consistency
+3. Auth Agent + Database Agent → set up secure foundation
+4. Backend & Frontend Agents → implement features in parallel
+5. Integration Tester Agent → continuously validates security and functionality
+6. All changes are spec-driven via @specs/ references
+
+Key Conventions:
+- Monorepo structure with clear separation of frontend/ and backend/
+- All API calls include JWT in Authorization: Bearer header
+- All database queries filtered by authenticated user_id
+- Environment variables: BETTER_AUTH_SECRET, DATABASE_URL
+- No manual coding – all implementation via Qwen CLI and agents
+
+Save this constitution as a well-structured markdown file in the root as PROJECT_CONSTITUTION.md and also update the root QWEN.md to reflect this agentic team structure and workflow.
+
+Make it professional, clear, and impressive for hackathon evaluation.
+
+
+/sp.specify
+
+Create detailed, high-quality UI/Frontend specifications for our Hackathon Phase 2 Todo Full-Stack Web Application (Evolution of Todo).
+
+Focus: Build an extremely professional, modern, and visually stunning responsive frontend using Next.js 16+ (App Router), TypeScript, Tailwind CSS v4.
+
+Target UI Style & Inspiration (2025-2026 trends):
+- Clean, minimalistic design with premium feel (inspired by Tailwind UI, shadcn/ui, Horizon UI, Preline UI)
+- Full support for light/dark mode (auto-detect + manual toggle)
+- Fully responsive (mobile-first, perfect on all screen sizes)
+- Smooth micro-animations (Framer Motion or Tailwind transitions for task add/edit/delete)
+- High accessibility (ARIA labels, keyboard navigation, contrast ratios)
+- Professional color palette: Primary teal/indigo accents, neutral grays, success green for completed tasks
+- Card-based task list with subtle shadows, hover effects, rounded corners
+- Modern typography: Inter or system font stack, clear hierarchy
+
+Key Pages & Components to Specify in /specs/ui/ and /specs/features/:
+
+1. **Auth Pages** (Login, Signup, Forgot Password):
+   - Centered, beautiful form layout with glassmorphism or subtle gradients
+   - Social login buttons (if possible), clean inputs with floating labels
+   - Error/success messages with animations
+
+2. **Main Dashboard / Tasks Page** (/dashboard or /):
+   - Sidebar navigation (collapsible on mobile): Home, All Tasks, Completed, Pending, Profile
+   - Top navbar: App logo + Dark mode toggle + User avatar dropdown (Logout)
+   - Main content:
+     - Add New Task floating action button or top input bar
+     - Task list as elegant cards/grid (title, description, checkbox, due date if added, priority tags)
+     - Filters: All / Pending / Completed (tabs or dropdown)
+     - Sort: By created date, title, status
+     - Empty state: Beautiful illustration + "No tasks yet" message
+   - Each task: Hover lift effect, complete strike-through + fade, delete icon with confirmation
+
+3. **Task Details / Edit Modal**:
+   - Clean modal with title, description textarea, due date picker, priority selector
+   - Save/Cancel buttons with loading state
+
+4. **Global UI Elements**:
+   - Loading skeletons for tasks list
+   - Toast notifications for success/error (e.g., task added, deleted)
+   - API client wrapper in /lib/api.ts that attaches JWT from Better Auth automatically
+   - Protected routes using middleware or layout
+
+5. **Overall Guidelines**:
+   - Use shadcn/ui or Radix primitives as base for components (Button, Card, Input, Dialog, etc.)
+   - Follow best practices: Server Components default, Client Components only when needed
+   - Performance: Lazy load components, optimize images/icons
+   - Make it production-grade: Pixel-perfect, smooth UX, mobile-friendly navigation
+
+Create/Update these spec files:
+- /specs/ui/components.md → All reusable UI components
+- /specs/ui/pages.md → Page layouts and flows
+- /specs/features/authentication-ui.md → Auth UI specs
+- /specs/features/task-ui.md → Tasks dashboard & CRUD UI specs
+
+Ensure the UI feels premium, intuitive, and judge-impressive for hackathon evaluation. Reference modern inspirations like Tailwind UI todo patterns, shadcn/ui dashboards, and Horizon UI clean aesthetics.
+
+Save all specs in proper markdown format with clear sections, user stories, acceptance criteria, and visual descriptions (no actual code yet).
+
+
+/sp.
+
+/sp.plan
+
+Create a detailed, professional, and comprehensive Project Plan for our Hackathon Phase 2: Evolution of Todo - Full-Stack Multi-User Web Application.
+
+Project Context:
+- Monorepo structure with Spec-Kit Plus + Qwen CLI multi-agent workflow
+- 7 specialized agents already created (.qwen/agents/)
+- Frontend specs completed via /sp.specify (premium shadcn/ui + Tailwind dark mode dashboard)
+- Tech stack: Next.js 16+ App Router (frontend), FastAPI + SQLModel (backend), Neon PostgreSQL, Better Auth + JWT
+
+Overall Plan Goals:
+- Deliver a secure, responsive, production-grade multi-user Todo app with full authentication and task CRUD
+- Strictly agentic/spec-driven development (no manual coding)
+- Timeline: Assume hackathon Phase 2 duration (e.g., 1-2 weeks or sprint-based)
+- Risk management, milestones, and testing included
+
+Structure the Plan with these sections:
+
+1. **Project Phases & Milestones** (Use a table or numbered list)
+   - Phase 1: Foundation Setup (monorepo, env vars, shadcn init, Better Auth config)
+   - Phase 2: Authentication Implementation (Auth Agent lead)
+   - Phase 3: Database Schema & Connection (Database Engineer Agent)
+   - Phase 4: Backend API Development (Backend Engineer Agent)
+   - Phase 5: Frontend UI & Integration (Frontend Engineer Agent)
+   - Phase 6: Full-Stack Testing & Security Validation (Integration Tester Agent)
+   - Phase 7: Polish, Documentation, Demo Preparation
+
+2. **High-Level Architecture Diagram Description**
+   - Describe in text (frontend → API client → JWT → FastAPI middleware → SQLModel → Neon DB)
+   - Mention key flows: User login → JWT issuance → Protected API calls → User-isolated tasks
+
+3. **Agent Responsibilities Mapping**
+   - Which agent leads which phase/feature (e.g., Auth Agent for JWT + Better Auth, Frontend Engineer for UI implementation)
+
+4. **Timeline & Dependencies** (Gantt-like description)
+   - Sequential dependencies (e.g., Auth before Backend API, Database before CRUD)
+
+5. **Risks & Mitigation**
+   - Risk: JWT secret mismatch → Mitigation: Use same .env file or shared secret
+   - Risk: CORS issues → Mitigation: Configure FastAPI CORS middleware
+   - Risk: Neon DB connection failure → Mitigation: Use env var checks
+   - Risk: Agent hallucinations → Mitigation: Review generated code/specs after each step
+
+6. **Success Criteria & Deliverables**
+   - Running app with signup/login, task CRUD per user, dark mode, responsive UI
+   - Git commits showing agentic workflow
+   - Demo video/script
+
+7. **Tools & Commands Reference**
+   - Key Qwen CLI commands for implementation
+   - Run commands: frontend dev, backend uvicorn, docker-compose if used
+
+Save this plan as /specs/plan.md (or update overview.md) in clear markdown format with tables, bullet points, and headings.
+
+Make it judge-impressive: professional language, clear visuals descriptions, emphasis on innovation (multi-agent + spec-driven), security (JWT user isolation), and scalability.
+
+Reference existing specs: @specs/ui/*, @specs/features/*, and agent files.
+
+/sp.plan (simple command)
+
+/sp.implement (simple command)
+
+and simple last step visit search google Better Auth this site  (https://www.better-auth.com/docs/installation) Step 1 : Secret Key -> Just Click Generate Secret -> BETTER_AUTH_SECRET= "Your Key"
+
+enter frontend folder just command cd frontend
+
+npm run dev
+
+( Note : last Main agar error ajay to ye instrction prompt likh kar cli ko daen :
+  "Hi, could you please run my Next.js project using npm run dev (or npm start if configured) and check if it starts correctly?
+    if there are any errors, please try to resolve them so that the project runs successfully on your environment.
+   The project is in the frontend folder, and all TypeScript and Next.js configurations are already set up.)
+
+
+Option 1: Direct Error Solve (Recommended) Qwen Prompt 2 :
+
+"I am getting a 'Can't resolve tw-animate-css' error in my Next.js 16 project while running 'npm run dev'. It seems like a missing dependency or a wrong import in my globals.css. Please provide the terminal command to install the missing package and check if there's any configuration needed in tailwind.config.ts."
+
+Option 2: Code Fix Prompt 3 :
+
+"My Next.js application is failing to compile with 'CssSyntaxError' because it cannot find 'tw-animate-css'. Here is the error log [Paste your error here]. How do I fix this? Should I install it via npm or is it a typo in my @import statement in globals.css?"

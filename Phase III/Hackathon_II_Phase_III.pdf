@@ -1,0 +1,365 @@
+Hackathon_II_Phase_III
+
+
+Hackathon II: Spec-Driven Development
+Hackathon II
+The Evolution of Todo – Mastering Spec-Driven Development &
+Cloud Native AI
+The future of software development is AI-native and spec-driven. As AI agents like Claude
+Code become more powerful, the role of the engineer shifts from "syntax writer" to "system
+architect." We have already explored Spec-Driven Book Authoring. Now, we want you to
+master the Architecture of Intelligence.
+In this hackathon, you will master the art of building applications iteratively—starting from a
+simple console app and evolving it into a fully-featured, cloud-native AI chatbot deployed on
+Kubernetes. This journey will teach you the Nine Pillars of AI-Driven Development, Claude
+Code, Spec-Driven Development with Reusable Intelligence and Cloud-Native AI
+technologies through hands-on implementation.
+Excel in the Hackathon and Launch Your Journey as an AI Startup Founder 🚀
+We've recently launched Panaversity (panaversity.org), an initiative focused on teaching
+cutting-edge AI courses. If you perform well in this hackathon, you may be invited for an
+interview to join the Panaversity core team and potentially step into the role of a startup
+founder within this growing ecosystem. You will get a chance to work with Panaversity
+founders Zia, Rehan, Junaid, and Wania and become the very best. You may also get a
+chance to teach at Panaversity, PIAIC, and GIAIC.
+What You Will Learn
+● Spec-Driven Development using Claude Code and Spec-Kit Plus
+● Reusable Intelligence: Agents Skills and Subagent Development
+● Full-Stack Development with Next.js, FastAPI, SQLModel, and Neon Serverless
+Database
+● AI Agent Development using OpenAI Agents SDK and Official MCP SDK
+● Cloud-Native Deployment with Docker, Kubernetes, Minikube, and Helm Charts
+● Event-Driven Architecture using Kafka and Dapr
+● AIOps with kubectl-ai, kagent and Claude Code
+● Develop Cloud-Native Blueprints for Spec-Driven Deployment
+Research Note: Deployment Blueprints for Spec-Driven Deployment
+1. Is Spec-Driven Development Key for Infrastructure Automation?
+2. ChatGPT Progressive Learning Conversation
+3. Spec-Driven Cloud-Native Architecture: Governing AI Agents for Managed Services
+with Claude Code and SpecKit
+Requirements
+You are required to complete the 5-Phase "Evolution of Todo" Project using Claude
+Code and Spec-Kit Plus. The core deliverables are:
+● Spec-Driven Implementation: You must implement all 5 Phases of the project
+(detailed below). You are strictly required to use Spec-Driven Development. You
+Page 1 of 37
+Hackathon II: Spec-Driven Development
+must write a Markdown Constitution and Spec for every feature of the phase, and use
+Claude Code to generate the implementation.
+Constraint: You cannot write the code manually. You must refine the Spec until
+Claude Code generates the correct output.
+● Integrated AI Chatbot: In Phases III, IV, and V, you must implement a conversational
+interface using OpenAI Chatkit, OpenAI Agents SDK, and Official MCP SDK. The
+bot must be able to manage the user's Todo list via natural language (e.g.,
+"Reschedule my morning meetings to 2 PM").
+● Cloud Native Deployment: In Phases IV and V, you must deploy the chatbot locally
+on Minikube, and on the cloud on DigitalOcean Kubernetes (DOKS).
+Todo App Feature Progression
+Basic Level (Core Essentials)
+These form the foundation—quick to build, essential for any MVP:
+1. Add Task – Create new todo items
+2. Delete Task – Remove tasks from the list
+3. Update Task – Modify existing task details
+4. View Task List – Display all tasks
+5. Mark as Complete – Toggle task completion status
+Intermediate Level (Organization & Usability)
+Add these to make the app feel polished and practical:
+1.
+2. Priorities & Tags/Categories – Assign levels (high/medium/low) or labels (work/home)
+3. Search & Filter – Search by keyword; filter by status, priority, or date
+4. Sort Tasks – Reorder by due date, priority, or alphabetically
+Advanced Level (Intelligent Features)
+1. Recurring Tasks – Auto-reschedule repeating tasks (e.g., "weekly meeting")
+2. Due Dates & Time Reminders – Set deadlines with date/time pickers; browser
+notifications
+Page 2 of 37
+Hackathon II: Spec-Driven Development
+Hackathon Phases Overview
+Phase Description Technology Stack Points Due Date
+Phase I In-Memory Python
+Console App
+Python, Claude Code, Spec-Kit
+Plus
+100 Dec 7, 2025
+Phase II Full-Stack Web
+Application
+Next.js, FastAPI, SQLModel,
+Neon DB
+150 Dec 14, 2025
+Phase III AI-Powered Todo
+Chatbot
+OpenAI ChatKit, Agents SDK,
+Official MCP SDK
+200 Dec 21, 2025
+Phase IV Local Kubernetes
+Deployment
+Docker, Minikube, Helm,
+kubectl-ai, kagent
+250 Jan 4, 2026
+Phase V Advanced Cloud
+Deployment
+Kafka, Dapr, DigitalOcean DOKS 300 Jan 18, 2026
+TOTAL 1,000
+Bonus Points
+Participants can earn additional bonus points for exceptional implementations:
+Bonus Feature Points
+Reusable Intelligence – Create and use reusable intelligence via Claude
+Code Subagents and Agent Skills
++200
+Create and use Cloud-Native Blueprints via Agent Skills +200
+Multi-language Support – Support Urdu in chatbot +100
+Voice Commands – Add voice input for todo commands +200
+TOTAL BONUS +600
+Timeline
+● Submission Deadline: On Sundays on dates as mentioned above.
+● Live Presentations: On Sundays, December 7, 14, and 21, 2025 and on January 4
+and 18, 2026 starting at 8:00 PM on Zoom. Final Live Presentation date to be
+determined.
+Top submissions will be invited via WhatsApp to present live on Zoom.
+Note: All submissions will be evaluated. Live presentation is by invitation only, but does not
+affect final scoring.
+Milestone Date Description
+Hackathon Start Monday, Dec 1, 2025 Documentation released
+Phase I Due Sunday, Dec 7, 2025 Console app checkpoint
+Phase II Due Sunday, Dec 14, 2025 Web app checkpoint
+Phase III Due Sunday, Dec 21, 2025 Chatbot checkpoint
+Phase IV Due Sunday, Jan 4, 2026 Local K8s checkpoint
+Final Submission Sunday, Jan 18, 2026 All phases complete
+Live Presentations Sundays, Dec 7, 14, 21,
+and Jan 4 and 18
+Top submissions present
+Page 3 of 37
+Hackathon II: Spec-Driven Development
+Submit and Present Your Project:
+Once you have completed the project you will submit your project here at each phase:
+https://forms.gle/CQsSEGM3GeCrL43c8
+Submit the following via the form for each phase (You can submit a phase before the
+due date):
+1. Public GitHub Repo Link
+2. Published App Link for Vercel.
+3. Include a demo video link (must be under 90 seconds). Judges will only watch the
+first 90 seconds. You can use NotebookLM or record your demo.
+4. WhatsApp number (top submissions will be invited to present live)
+Everyone is welcome to join the Zoom meeting to watch the presentations. Only invited
+participants will present their submissions. The meetings start at 8:00 PM on Sundays.
+Join Zoom Meeting
+- Time: 08:00 PM On Sundays, December 7, 14, and 21, 2025 and on January 4, 2026
+starting at 8:00 PM on Zoom. Final Live Presentation date to be determined.
+- https://us06web.zoom.us/j/84976847088?pwd=Z7t7NaeXwVmmR5fysCv7NiMbfbhId
+a.1
+- Meeting ID: 849 7684 7088
+- Passcode: 305850
+Page 4 of 37
+Hackathon II: Spec-Driven Development
+Project Details: The Evolution of Todo
+Focus and Theme: From CLI to Distributed Cloud-Native AI Systems.
+Goal: Students act as Product Architects, using AI to build progressively complex software
+without writing boilerplate code.
+Project Overview
+This project simulates the real-world evolution of software. You will start with a simple
+script and end with a Kubernetes-managed, event-driven, AI-powered distributed system.
+
+
+Phase Breakdown
+
+
+
+Phase III: Todo AI Chatbot
+Basic Level Functionality
+Objective: Create an AI-powered chatbot interface for managing todos through natural
+language using MCP (Model Context Protocol) server architecture and using Claude Code
+and Spec-Kit Plus.
+Requirements
+1. Implement conversational interface for all Basic Level features
+2. Use OpenAI Agents SDK for AI logic
+3. Build MCP server with Official MCP SDK that exposes task operations as tools
+4. Stateless chat endpoint that persists conversation state to database
+5. AI agents use MCP tools to manage tasks. The MCP tools will also be stateless and
+will store state in the database.
+Technology Stack
+Component Technology
+Frontend OpenAI ChatKit
+Backend Python FastAPI
+AI Framework OpenAI Agents SDK
+MCP Server Official MCP SDK
+ORM SQLModel
+Database Neon Serverless PostgreSQL
+Authentication Better Auth
+Architecture
+┌─────────────────┐ ┌──────────────────────────────────────────────┐
+┌─────────────────┐
+│ │ │ FastAPI Server │ │
+│
+│ │ │ ┌────────────────────────────────────────┐ │ │
+│
+│ ChatKit UI │────▶│ │ Chat Endpoint │ │ │
+Neon DB │
+│ (Frontend) │ │ │ POST /api/chat │ │ │
+(PostgreSQL) │
+│ │ │ └───────────────┬────────────────────────┘ │ │
+│
+│ │ │ │ │ │
+- tasks │
+│ │ │ ▼ │ │
+- conversations│
+│ │ │ ┌────────────────────────────────────────┐ │ │
+- messages │
+│ │◀────│ │ OpenAI Agents SDK │ │ │
+│
+│ │ │ │ (Agent + Runner) │ │ │
+│
+│ │ │ └───────────────┬────────────────────────┘ │ │
+│
+│ │ │ │ │ │
+│
+Page 17 of 37
+Hackathon II: Spec-Driven Development
+│ │ │ ▼ │ │
+│
+│ │ │ ┌────────────────────────────────────────┐ │────▶│
+│
+│ │ │ │ MCP Server │ │ │
+│
+│ │ │ │ (MCP Tools for Task Operations) │ │◀────│
+│
+│ │ │ └────────────────────────────────────────┘ │ │
+│
+└─────────────────┘ └──────────────────────────────────────────────┘
+└─────────────────┘
+Database Models
+Model Fields Description
+Task user_id, id, title, description,
+completed, created_at, updated_at
+Todo items
+Conversation user_id, id, created_at, updated_at Chat session
+Message user_id, id, conversation_id, role
+(user/assistant), content, created_at
+Chat history
+Chat API Endpoint
+Method Endpoint Description
+POST /api/{user_id}/chat Send message & get AI response
+Request
+Field Type Required Description
+conversation_id integer No Existing conversation ID (creates new if
+not provided)
+message string Yes User's natural language message
+Response
+Field Type Description
+conversation_id integer The conversation ID
+response string AI assistant's response
+tool_calls array List of MCP tools invoked
+MCP Tools Specification
+The MCP server must expose the following tools for the AI agent:
+Tool: add_task
+Purpose Create a new task
+Parameters user_id (string, required), title (string, required), description (string,
+optional)
+Returns task_id, status, title
+Example Input {“user_id”: “ziakhan”, "title": "Buy groceries", "description": "Milk, eggs,
+bread"}
+Page 18 of 37
+Hackathon II: Spec-Driven Development
+Example Output {"task_id": 5, "status": "created", "title": "Buy groceries"}
+Tool: list_tasks
+Purpose Retrieve tasks from the list
+Parameters status (string, optional: "all", "pending", "completed")
+Returns Array of task objects
+Example Input {user_id (string, required), "status": "pending"}
+Example Output [{"id": 1, "title": "Buy groceries", "completed": false}, ...]
+Tool: complete_task
+Purpose Mark a task as complete
+Parameters user_id (string, required), task_id (integer, required)
+Returns task_id, status, title
+Example Input {“user_id”: “ziakhan”, "task_id": 3}
+Example Output {"task_id": 3, "status": "completed", "title": "Call mom"}
+Tool: delete_task
+Purpose Remove a task from the list
+Parameters user_id (string, required), task_id (integer, required)
+Returns task_id, status, title
+Example Input {“user_id”: “ziakhan”, "task_id": 2}
+Example Output {"task_id": 2, "status": "deleted", "title": "Old task"}
+Tool: update_task
+Purpose Modify task title or description
+Parameters user_id (string, required), task_id (integer, required), title (string,
+optional), description (string, optional)
+Returns task_id, status, title
+Example Input {“user_id”: “ziakhan”, "task_id": 1, "title": "Buy groceries and fruits"}
+Example Output {"task_id": 1, "status": "updated", "title": "Buy groceries and fruits"}
+Agent Behavior Specification
+Behavior Description
+Task Creation When user mentions adding/creating/remembering something, use
+add_task
+Task Listing When user asks to see/show/list tasks, use list_tasks with
+appropriate filter
+Task Completion When user says done/complete/finished, use complete_task
+Task Deletion When user says delete/remove/cancel, use delete_task
+Task Update When user says change/update/rename, use update_task
+Confirmation Always confirm actions with friendly response
+Error Handling Gracefully handle task not found and other errors
+Page 19 of 37
+Hackathon II: Spec-Driven Development
+Conversation Flow (Stateless Request Cycle)
+1. Receive user message
+2. Fetch conversation history from database
+3. Build message array for agent (history + new message)
+4. Store user message in database
+5. Run agent with MCP tools
+6. Agent invokes appropriate MCP tool(s)
+7. Store assistant response in database
+8. Return response to client
+9. Server holds NO state (ready for next request)
+Natural Language Commands
+The chatbot should understand and respond to:
+User Says Agent Should
+"Add a task to buy groceries" Call add_task with title "Buy groceries"
+"Show me all my tasks" Call list_tasks with status "all"
+"What's pending?" Call list_tasks with status "pending"
+"Mark task 3 as complete" Call complete_task with task_id 3
+"Delete the meeting task" Call list_tasks first, then delete_task
+"Change task 1 to 'Call mom tonight'" Call update_task with new title
+"I need to remember to pay bills" Call add_task with title "Pay bills"
+"What have I completed?" Call list_tasks with status "completed"
+Deliverables
+1. GitHub repository with:
+● /frontend – ChatKit-based UI
+● /backend – FastAPI + Agents SDK + MCP
+● /specs – Specification files for agent and MCP tools
+● Database migration scripts
+● README with setup instructions
+2. Working chatbot that can:
+● Manage tasks through natural language via MCP tools
+● Maintain conversation context via database (stateless server)
+● Provide helpful responses with action confirmations
+● Handle errors gracefully
+● Resume conversations after server restart
+Key Architecture Benefits
+Aspect Benefit
+MCP Tools Standardized interface for AI to interact with your app
+Single Endpoint Simpler API — AI handles routing to tools
+Stateless Server Scalable, resilient, horizontally scalable
+Tool Composition Agent can chain multiple tools in one turn
+Page 20 of 37
+Hackathon II: Spec-Driven Development
+Key Stateless Architecture Benefits
+● Scalability: Any server instance can handle any request
+● Resilience: Server restarts don't lose conversation state
+● Horizontal scaling: Load balancer can route to any backend
+● Testability: Each request is independent and reproducible
+Page 21 of 37
+
+
+Frequently Asked Questions
+Q: Can I skip phases?
+A: No, each phase builds on the previous. You must complete them in order.
+Q: Can I use different technologies?
+A: The core stack must remain as specified. You can add additional tools/libraries.
+Q: Do I need a DigitalOcean account from the start?
+A: No, only for Phase V. Use the $200 free credit for new accounts.
+Q: Can I work in a team?
+A: This is an individual hackathon. Each participant submits separately.
+Q: What if I don't complete all the phases?
+A: Submit what you complete. Partial submissions are evaluated proportionally.
+Page 36 of 37
+Hackathon II: Spec-Driven Development
+Good luck, and may your specs be clear and your code be clean!
+🚀
+— The Panaversity, PIAIC, and GIAIC Teams

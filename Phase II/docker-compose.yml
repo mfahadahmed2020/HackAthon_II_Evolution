@@ -1,0 +1,91 @@
+# Phase 2 Todo App - Docker Compose Configuration
+# Roman Urdu: Yeh configuration multiple containers ko manage karti hai
+
+version: '3.8'
+
+# Services define kar rahe hain
+# Roman Urdu: Application aur database ke services
+services:
+  # Web Application Service
+  # Roman Urdu: Yeh hamara FastAPI application hai
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: phase2-todo-app
+    
+    # Port mapping - host:container
+    # Roman Urdu: Port 8000 par application accessible hoga
+    ports:
+      - "8000:8000"
+    
+    # Environment variables load karna
+    # Roman Urdu: .env file se variables load ho rahe hain
+    env_file:
+      - .env
+    
+    # Additional environment variables
+    # Roman Urdu: Production settings
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DATABASE_URL=sqlite:///./database/todo_app.db
+    
+    # Volumes - data persistence ke liye
+    # Roman Urdu: Database aur logs persist karne ke liye volumes
+    volumes:
+      # Database volume - SQLite file persist hogi
+      - todo_db_data:/app/database
+      # Logs volume - application logs
+      - todo_logs:/app/logs
+      # .env file mount - environment variables
+      - ./.env:/app/.env:ro
+    
+    # Network configuration
+    # Roman Urdu: Application internal network par hai
+    networks:
+      - todo-network
+    
+    # Health check - container healthy hai ya nahi
+    # Roman Urdu: Health check se pata chalta hai app chal raha hai
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    
+    # Restart policy - crash hone par automatically restart
+    # Roman Urdu: Agar app crash ho toh automatically restart hoga
+    restart: unless-stopped
+    
+    # Resource limits - zyada resources na le
+    # Roman Urdu: Memory aur CPU limits
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+
+# Named Volumes - data persistence ke liye
+# Roman Urdu: Volumes se data container restart ke baad bhi rehta hai
+volumes:
+  todo_db_data:
+    # Roman Urdu: Yeh volume SQLite database ko store karta hai
+    name: phase2-todo-db-data
+    driver: local
+  
+  todo_logs:
+    # Roman Urdu: Yeh volume application logs ko store karta hai
+    name: phase2-todo-logs
+    driver: local
+
+# Networks - container communication ke liye
+# Roman Urdu: Network se containers ek doosre se baat kar sakte hain
+networks:
+  todo-network:
+    # Roman Urdu: Bridge network type - default aur simple
+    driver: bridge
+    name: phase2-todo-network
